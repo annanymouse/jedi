@@ -13,7 +13,7 @@ def hello_person(firstname, lastname):
             Hello {}!
         </h1>
     """
-    return html.format(lastname[0:3] + firstname[0:2])
+    return html.format(lastname[0:3].title() + firstname[0:2])
 
 if __name__=="__main__":
     app.run(host="0.0.0.0", port=8080)
