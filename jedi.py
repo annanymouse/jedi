@@ -7,14 +7,13 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/jedi/<firstname>/<lastname>")
-def hello_person(name):
+def hello_person(firstname, lastname):
     html = """
         <h1>
             Hello {}!
         </h1>
-        <p>
-            Here's a picture of a kitten.  Awww...
-        </p>
-        <img src="http://placekitten.com/g/200/300">
     """
-    return html.format(name.title())
+    return html.format(lastname[0:3] + firstname[0:2])
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0", port=8080)
